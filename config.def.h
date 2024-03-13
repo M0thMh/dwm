@@ -49,7 +49,8 @@ static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "@DEFAULT_
 static const char *light_up[]   = { "brightnessctl", "set", "10%+", NULL };
 static const char *light_down[] = { "brightnessctl", "set", "10%-", NULL };
 
-
+/* Lock Screen */
+static const char *lock[] = { "slock", NULL };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -104,6 +105,7 @@ static const Key keys[] = {
     { 0,			XF86XK_MonBrightnessUp,	   spawn,	       {.v = light_up} },
 	{ 0,			XF86XK_MonBrightnessDown,  spawn,	       {.v = light_down} },
 
+    { MODKEY,                       XK_x,      spawn,          {.v = lock } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
